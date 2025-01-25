@@ -1,9 +1,12 @@
+import Body from "./components/Body";
+import Head from "./components/Head";
 
 
 function App() {
   return (
     <div className="">
-      <h1 className="text-3xl font-bold ">youtube clone</h1>
+      <Head />
+      <Body />
     </div>
   );
 }
