@@ -6,11 +6,11 @@ const commentsData = [
         name: 'User1',
         text: 'Lorem ipsum ',
         replies: [{
-            name: 'User2',
+            name: 'User4',
             text: 'Lorem ipsum '
         },
         {
-            name: 'User3',
+            name: 'User9',
             text: 'Lorem ipsum'
         },
 
@@ -18,27 +18,34 @@ const commentsData = [
     },
     {
         name: 'User2',
-        text: 'Lorem ipsum  '
+        text: 'Lorem ipsum  ',
+        replies: [{
+            name: 'User4',
+            text: 'Lorem ipsum '
+        },
+        {
+            name: 'User9',
+            text: 'Lorem ipsum'
+        },
+
+        ]
     },
-    {
-        name: 'User3',
-        text: 'Lorem ipsum  '
-    },
+   
 
 
 ];
 
-const CommentsList = ({ comments }) => {
-    return comments.map((comment, index) => (
-        <div>
-            <Comment key={index} data={comment} />
+export const CommentsList = ({ comments }) => {
+    return comments.map((comment) => (
+        <div key={comment.name}> 
+            <Comment data={comment} />
             <div className='pl-5 border border-l-black ml-5'>
-                <Comment key={index} data={comment} />
-                <Comment key={index} data={comment} />
+                {comment.replies && (
+                    <CommentsList comments={comment.replies} />
+                )}
             </div>
         </div>
     ));
-
 };
 
 
